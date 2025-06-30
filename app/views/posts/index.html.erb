@@ -1,7 +1,12 @@
 <div>
     <ul>
         <% @posts.each do |post| %>
-            <li><%= post.title %></li> 
+            <li>
+                <%= post.title %>
+                <% if user_signed_in?%>
+                    - <%= post.user.email.split("@")[0].capitalize %> 
+                <% end %>
+            </li>
         <% end %>
     </ul>
 </div>
